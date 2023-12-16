@@ -1,6 +1,6 @@
 {
   "extends": "../../.releaserc.json",
-  "repositoryUrl": "${githubUrl}",
+  "repositoryUrl": "https://github.com/guiseek/recycle.git",
   "branches": [
     "+([0-9])?(.{+([0-9]),x}).x",
     "main",
