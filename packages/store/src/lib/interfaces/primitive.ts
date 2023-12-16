@@ -1,1 +1,1 @@
-export type Primitive = string | number | Date
+export type Primitive = string | number | Date;
