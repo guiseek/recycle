@@ -53,24 +53,24 @@ describe('store', () => {
   });
 
   it('name value should be a string', () => {
-    expect(typeof state.name.value).toBe('string')
+    expect(typeof state.name.value).toBe('string');
   });
 
   it('name value should be Gui', () => {
-    expect(state.name.value).toBe('Gui')
+    expect(state.name.value).toBe('Gui');
   });
 
   it('name value should be Lu', () => {
-    state.name.set('Lu')
-    expect(state.name.value).toBe('Lu')
+    state.name.set('Lu');
+    expect(state.name.value).toBe('Lu');
   });
 
   it('age should be a number', () => {
-    expect(typeof state.age.value).toBe('number')
+    expect(typeof state.age.value).toBe('number');
   });
 
   it('age should be 37', () => {
-    expect(state.age.value).toBe(37)
+    expect(state.age.value).toBe(37);
   });
 
   it('birthday should be a date', () => {
@@ -78,11 +78,11 @@ describe('store', () => {
   });
 
   it('children name should be a string', () => {
-    expect(typeof state.children[0].name.value).toBe('string')
+    expect(typeof state.children[0].name.value).toBe('string');
   });
 
   it('children age should be a number', () => {
-    expect(typeof state.children[0].age.value).toBe('number')
+    expect(typeof state.children[0].age.value).toBe('number');
   });
 
   it('children birthday should be a date', () => {
