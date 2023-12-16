@@ -1,12 +1,5 @@
 {
   "extends": "../../.releaserc.json",
-  "repositoryUrl": "https://github.com/guiseek/recycle.git",
-  "branches": [
-    "+([0-9])?(.{+([0-9]),x}).x",
-    "main",
-    { "name": "beta", "prerelease": true },
-    { "name": "alpha", "prerelease": true }
-  ],
   "tagFormat": "template-v${version}",
   "plugins": [
     [
@@ -15,26 +8,12 @@
         "project": "template"
       }
     ],
-    "@semantic-release/commit-analyzer",
-    "@semantic-release/release-notes-generator",
     [
       "@semantic-release/npm",
       {
-        "pkgRoot": "dist/packages/template",
-        "tarballDir": "dist/packages/template"
+        "pkgRoot": "dist/packages/template"
       }
     ],
-    [
-      "@semantic-release/exec",
-      {
-        "publishCmd": "npx nx run template:release --args=\"--version=${nextRelease.version}\""
-      }
-    ],
-    [
-      "@semantic-release/github",
-      {
-        "assets": "dist/packages/template/*.tgz"
-      }
-    ]
+    "@semantic-release/github"
   ]
 }
