@@ -4,7 +4,7 @@ on:
 
 env:
   CI: true
-  GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   GH_TOKEN: ${{ secrets.GH_TOKEN }}
   NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
@@ -26,17 +26,19 @@ jobs:
         run: |
           git config --global user.name 'guiseek'
           git config --global user.email 'guiseek@gmail.com'
-          git remote set-url origin https://guiseek:$GITHUB_TOKEN@github.com/guiseek/recycle
+          git remote set-url origin https://guiseek:$GH_TOKEN@github.com/guiseek/recycle
         env:
-          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
-
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        
       - run: npm ci
       - uses: nrwl/nx-set-shas@v3
         env:
-          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-      # This line is needed for nx affected to work when CI is running on a PR
+        # This line is needed for nx affected to work when CI is running on a PR
       - run: git branch --track main origin/main
 
       - run: npx nx format:check

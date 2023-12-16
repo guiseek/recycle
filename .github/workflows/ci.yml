@@ -6,6 +6,7 @@ on:
 
 env:
   CI: true
+  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   GH_TOKEN: ${{ secrets.GH_TOKEN }}
   NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
@@ -30,13 +31,16 @@ jobs:
           git config --global user.email 'guiseek@gmail.com'
           git remote set-url origin https://guiseek:$GITHUB_TOKEN@github.com/guiseek/recycle
         env:
-          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
-
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        
       - run: npm ci
       - uses: nrwl/nx-set-shas@v3
         env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-
+        
       - run: npx nx format:check
       - run: npx nx affected -t lint,test,build,release --parallel=3
