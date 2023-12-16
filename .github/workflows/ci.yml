@@ -1,9 +1,11 @@
-name: PR
+name: CI
 on:
   push:
     branches:
       - main
-  pull_request:
+
+env:
+  CI: true
 
 jobs:
   main:
@@ -24,8 +26,6 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-      # This line is needed for nx affected to work when CI is running on a PR
-      - run: git branch --track main origin/main
 
       - run: npx nx format:check
       - run: npx nx affected -t lint,test,build,release --parallel=3
