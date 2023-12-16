@@ -7,7 +7,7 @@
   "typings": "./index.d.ts",
   "repository": {
     "type": "git",
-    "url": "https://github.com/guiseek/recycle.git",
+    "url": "git+https://github.com/guiseek/recycle.git",
     "directory": "packages/template"
   },
   "publishConfig": {
