@@ -16,6 +16,7 @@
     "baseUrl": ".",
     "paths": {
       "@recycle/elements": ["packages/elements/src/index.ts"],
+      "@recycle/store": ["packages/store/src/index.ts"],
       "@recycle/template": ["packages/template/src/index.ts"]
     }
   },
