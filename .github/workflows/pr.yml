@@ -2,6 +2,11 @@ name: PR
 on:
   pull_request:
 
+env:
+  CI: true
+  GH_TOKEN: ${{ secrets.GH_TOKEN }}
+  NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+    
 jobs:
   main:
     name: Checklist
@@ -18,7 +23,7 @@ jobs:
       - run: npm ci
       - uses: nrwl/nx-set-shas@v3
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
       # This line is needed for nx affected to work when CI is running on a PR
       - run: git branch --track main origin/main
