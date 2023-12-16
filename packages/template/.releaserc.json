@@ -27,7 +27,7 @@
     [
       "@semantic-release/exec",
       {
-        "publishCmd": "nx run template:release --args=\"--version=${nextRelease.version}\""
+        "publishCmd": "npx nx run template:release --args=\"--version=${nextRelease.version}\""
       }
     ],
     [
