@@ -8,6 +8,7 @@ module.exports = {
   scopes: [
     "elements",
     "template",
+    "store",
     "recycle"
   ],
   types: {
