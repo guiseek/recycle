@@ -1,14 +1,6 @@
 import { CustomElementTarget } from '../interfaces';
 import { noop } from '../utilities';
-
-export const enum Show {
-  element = 0x1,
-  attribute = 0x2,
-  text = 0x4,
-  entity = 0x20,
-  comment = 0x80,
-  all = 0xffffffff,
-}
+import { Show } from '../enums';
 
 export function children(el: CustomElementConstructor, filter = Show.element) {
   return function <T extends CustomElementTarget>(
