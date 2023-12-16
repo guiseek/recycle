@@ -23,6 +23,15 @@ jobs:
         with:
           node-version: 20
           cache: 'npm'
+
+      - name: Configure CI Git User
+        run: |
+          git config --global user.name 'guiseek'
+          git config --global user.email 'guiseek@gmail.com'
+          git remote set-url origin https://guiseek:$GITHUB_TOKEN@github.com/guiseek/recycle
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+
       - run: npm ci
       - uses: nrwl/nx-set-shas@v3
         env:
