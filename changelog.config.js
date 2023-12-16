@@ -7,6 +7,7 @@ module.exports = {
   questions: ['type', 'scope', 'subject', 'body', 'breaking', 'issues', 'lerna'],
   scopes: [
     "elements",
+    "template",
     "recycle"
   ],
   types: {
